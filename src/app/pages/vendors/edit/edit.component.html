@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="header">
+        <h3>
+            Edit Vendor Details
+        </h3>
+    </div>
+    <form [formGroup]='form' (submit)='submit()'>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="">
+                    <input formControlName='shop_name' matInput placeholder="Shop Name">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.shop_name.errors && form.controls.shop_name.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="">
+                    <input formControlName='shop_description' matInput placeholder="Shop Description">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.shop_description.errors && form.controls.shop_description.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="">
+                    <input formControlName='phone_number' matInput placeholder="Phone Number">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.phone_number.errors && form.controls.phone_number.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button mat-raised-button color="primary">Submit</button>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+    </form>
+</div>

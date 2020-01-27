@@ -1,0 +1,169 @@
+<div class="container">
+    <div class="header">
+        <h3>
+            Add Vendor Details
+        </h3>
+    </div>
+    <form [formGroup]='form' (submit)='submit()'>
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input formControlName='shop_name' matInput placeholder="Shop Name">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.shop_name.errors && form.controls.shop_name.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input formControlName='pincode' matInput placeholder="Pincode">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.pincode.errors && form.controls.pincode.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input formControlName='lat' matInput placeholder="Latitude">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.lat.errors && form.controls.lat.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input formControlName='long' matInput placeholder="Logitude">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.long.errors && form.controls.long.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input formControlName='phone_number' matInput placeholder="Phone Number">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.phone_number.errors && form.controls.phone_number.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='car_tube' matInput placeholder="Car Tube Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.car_tube.errors && form.controls.car_tube.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='bike_tube' matInput placeholder="Bike Tube Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.bike_tube.errors && form.controls.bike_tube.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='bus_tube' matInput placeholder="Bus Tube Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.bus_tube.errors && form.controls.bus_tube.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input formControlName='place' matInput placeholder="Place">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.place.errors && form.controls.place.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='car_tubeless' matInput placeholder="Car Tubeless Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.car_tubeless.errors && form.controls.car_tubeless.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input ftype="number" formControlName='bike_tubeless' matInput placeholder="Bike Tubeless Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.bike_tubeless.errors && form.controls.bike_tubeless.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='bus_tubeless' matInput placeholder="Bus Tubeless Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.bus_tubeless.errors && form.controls.bus_tubeless.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input formControlName='shop_description' matInput placeholder="Shop Description">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.shop_description.errors && form.controls.shop_description.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='car_rft' matInput placeholder="Car RFT Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.car_rft.errors && form.controls.car_rft.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='bike_rft' matInput placeholder="Bike RFT Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.bike_rft.errors && form.controls.bike_rft.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+            <div class="col-md-3">
+                <mat-form-field class="">
+                    <input type="number" formControlName='bus_rft' matInput placeholder="Bus RFT Price">
+                </mat-form-field>
+                <div *ngIf='submitted && form.controls.bus_rft.errors && form.controls.bus_rft.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button mat-raised-button color="primary">Submit</button>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+    </form>
+</div>

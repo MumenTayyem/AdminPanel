@@ -1,0 +1,20 @@
+<section>
+    <div class="container">
+      <div class="login-form">
+        <h1>Sign In</h1>
+        <form [formGroup]='form' (submit)='login()'>
+          <input formControlName='username' type="text" name="username" placeholder="username">
+          <div *ngIf='submitted && form.controls.username.errors && form.controls.username.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+          <input formControlName='password' type="password" name="password" placeholder="password">
+          <div *ngIf='submitted && form.controls.password.errors && form.controls.password.errors.required'
+                    class="alert alert-danger alert-dismissible fade show">
+                    This field is required
+                </div>
+          <input type="submit" value="Login">
+        </form>
+      </div>
+    </div>
+  </section>

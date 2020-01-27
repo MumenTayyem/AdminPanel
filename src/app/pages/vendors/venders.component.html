@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-12">
+    <button mat-raised-button color="primary" (click)='openDialog("add")'>Add Vendor</button>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+            <table  mat-table [dataSource]="dataSource"  matSort='x'>
+                <ng-container matColumnDef="shop_name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                  <td mat-cell *matCellDef="let row"> {{row.shop_name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="phone_number" >
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
+                  <td mat-cell *matCellDef="let row"> {{row.phone_number}} </td>
+                </ng-container>
+                <ng-container matColumnDef="place">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Place </th>
+                  <td mat-cell *matCellDef="let row"> {{row.place}} </td>
+                </ng-container>
+                <ng-container matColumnDef="total_amount" >
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Collection </th>
+                  <td mat-cell *matCellDef="let row"> {{row.total_amount}} </td>
+                </ng-container>   
+                <ng-container matColumnDef="pincode">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Pincode </th>
+                  <td mat-cell *matCellDef="let row"> {{row.pincode}} </td>
+                </ng-container>   
+                <ng-container matColumnDef="total_orders">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Orders </th>
+                  <td mat-cell *matCellDef="let row"> {{row.total_orders}} </td>
+                </ng-container> 
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef> Action </th>
+                  <td mat-cell *matCellDef="let row" class="action-link"> 
+                    <!-- <a (click)="openDialog('Update',row)">Edit</a> | 
+                    <a (click)="openDialog('Delete',row)">Delete</a>   -->
+                    <button (click)='openDialog("edit",row._id)' mat-icon-button color='primary'> 
+                      <mat-icon >edit</mat-icon>
+                    </button>
+                    <button (click)='deleteVendor(row._id)' mat-icon-button color='secondary'> 
+                      <mat-icon >delete</mat-icon>
+                    </button>
+                  </td>
+                </ng-container>   
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+</div>

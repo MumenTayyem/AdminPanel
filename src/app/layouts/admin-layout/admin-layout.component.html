@@ -1,0 +1,15 @@
+<div class="wrapper" >
+    <div class="sidebar" data-color="white" data-active-color="danger" *ngIf='shouldView'  #sidebar>
+        <sidebar-cmp></sidebar-cmp>
+    </div>
+    <div class="main-panel" [ngClass]="{'white':shouldView==false}">
+        <div class="row">
+            <div class="col-md-12" color='primary'>
+                <mat-toolbar color='primary'>Admin Dashboard</mat-toolbar>
+            </div>
+        </div>
+        <div class="content" >
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

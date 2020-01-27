@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-3">
+    <mat-form-field>
+      <input [(ngModel)]='filters["status"]' matInput (keyup)="applyFilter($event.target.value)" placeholder="Status">
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field>
+      <input matInput [(ngModel)]='filters["fromDate"]'  (dateChange)="applyFilter($event.target.value)" [matDatepicker]="picker" placeholder="From Date" disabled>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker disabled='false'></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field>
+      <input matInput [(ngModel)]='filters["toDate"]'  (dateChange)="applyFilter($event.target.value)" [matDatepicker]="picker2" placeholder="To Date" disabled>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 disabled='false'></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <button (click)='clearFilter()' mat-icon-button>
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+            <table  mat-table [dataSource]="dataSource"  matSort='x'>
+                <ng-container matColumnDef="customer_name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer </th>
+                  <td mat-cell *matCellDef="let row"> {{row.customer_name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="category_vehicle" >
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Service Type </th>
+                  <td mat-cell *matCellDef="let row"> {{row.category_vehicle}} </td>
+                </ng-container>
+                <ng-container matColumnDef="final_price">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment </th>
+                  <td mat-cell *matCellDef="let row"> {{row.final_price}} </td>
+                </ng-container>
+                <ng-container matColumnDef="payment_status" >
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                  <td mat-cell *matCellDef="let row"> {{row.payment_status}} </td>
+                </ng-container>   
+                <ng-container matColumnDef="vendor_name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Shop Name </th>
+                  <td mat-cell *matCellDef="let row"> {{row.vendor_name}} </td>
+                </ng-container>   
+                <ng-container matColumnDef="booking_date">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Booking Time </th>
+                  <td mat-cell *matCellDef="let row"> {{row.booking_date + ' ' + row.booking_time}} </td>
+                </ng-container>    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+              </table>
+              <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+      </div>
+</div>
