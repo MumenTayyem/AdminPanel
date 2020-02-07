@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('loggedin')){
-      this.router.navigate(['/vendors']);
+      this.router.navigate(['/dashboard']);
     }
   }
 
@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
     if (this.form.valid){
       this.authService.login(this.form.controls['username'].value,this.form.controls['password'].value).subscribe((res:any)=>{
         if (res.code==200){
-          localStorage.setItem('loggedin','true');
-          this.router.navigate(['/vendors']);
-          this.generalService.showNotification('top','center',res.message,2);
+          localStorage.setItem('access_token',res.token);
+          this.router.navigate(['/dashboard']);
+          this.generalService.showNotification('top','center','Success!',2);
         }else{
           this.generalService.showNotification('top','center',res.message,4);
         }

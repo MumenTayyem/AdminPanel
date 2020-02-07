@@ -14,6 +14,6 @@ export const environment = {
   login:'http://api.tyrewala.in/admin/adminlogin',
   totalCustomers:'http://api.tyrewala.in/booking/totalCustomers',
   totalBookings:'http://api.tyrewala.in/booking/totalBooking',
-  totalSales:'',
-  totalComission:''
+  totalSales:'http://api.tyrewala.in/booking/totalSales',
+  totalComission:'http://api.tyrewala.in/booking/totalComission'
 };

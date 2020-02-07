@@ -46,11 +46,19 @@ export class DashboardComponent implements OnInit {
       this.dashboardServices.getTotalCustomers().subscribe((res: any) => {
         this.totalCustomers = res.message.customers_count;
 
-        this.dashboardServices.getAllBookings().subscribe((res: any) => {
+        this.dashboardServices.getTotalSales().subscribe((res:any)=>{
+          this.totalSales = res[0].total;
 
-          this.dataSource = new MatTableDataSource(res.message.data);
-          this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
+          this.dashboardServices.getTotalComission().subscribe((res:any)=>{
+            this.totalComission = res[0].total;
+
+            this.dashboardServices.getAllBookings().subscribe((res: any) => {
+
+              this.dataSource = new MatTableDataSource(res.message.data);
+              this.dataSource.sort = this.sort;
+              this.dataSource.paginator = this.paginator;
+            });
+          });
         });
       });
     });
@@ -59,9 +67,9 @@ export class DashboardComponent implements OnInit {
   update(type) {
     switch (type) {
       case 'sales':
-        // this.dashboardServices.getTotalSales().subscribe((res:any)=>{
-        //   this.totalSales =res.message.sales_count;
-        // });
+        this.dashboardServices.getTotalSales().subscribe((res:any)=>{
+          this.totalSales =res[0].total;
+        });
         break;
       case 'bookings':
         this.dashboardServices.getTotalBookings().subscribe((res:any)=>{
@@ -74,9 +82,9 @@ export class DashboardComponent implements OnInit {
         });
         break;
       case 'comission':
-        // this.dashboardServices.getTotalComission().subscribe((res:any)=>{
-        //   this.totalSales =res.message.comission_count;
-        // });
+        this.dashboardServices.getTotalComission().subscribe((res:any)=>{
+          this.totalComission =res[0].total;
+        });
         break;
     }
   }

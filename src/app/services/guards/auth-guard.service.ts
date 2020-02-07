@@ -14,7 +14,7 @@ export class AuthGuardService implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
  
-       if ( localStorage.getItem('loggedin') ){
+       if ( localStorage.getItem('access_token') ){
          // Token from the LogIn is avaiable, so the user can pass to the route
          return true
        } else  {
